@@ -4,7 +4,7 @@
   "description": "the voice of james",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/nodeunit test"
   },
   "repository": {
     "type": "git",
@@ -12,7 +12,8 @@
   },
   "keywords": [
     "james",
-"tts", "conceptuli"
+    "tts",
+    "conceptuli"
   ],
   "author": "Brian Bagdasarian <brian@conceptu.li> (http://conceptu.li)",
   "license": "MIT",
@@ -25,6 +26,7 @@
     "fs-extra": "^0.12.0",
     "http": "0.0.0",
     "justaudio": "^0.1.1",
-    "path": "^0.4.9"
+    "path": "^0.4.9",
+    "when": "^3.5.2"
   }
 }
