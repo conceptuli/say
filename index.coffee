@@ -38,4 +38,3 @@ Say = (NewPhrase...)  ->
 
 
 module.exports = Say
-Say 'hello'
