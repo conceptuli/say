@@ -1,6 +1,6 @@
 {
   "name": "james-say",
-  "version": "1.0.1",
+  "version": "1.0.31",
   "description": "the voice of james",
   "main": "index.js",
   "scripts": {

@@ -31,6 +31,7 @@ Say = (NewPhrase...)  ->
 
         else
           console.log 'Oh no! error ' + res.text
+  return next()
 
 
 
