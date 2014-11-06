@@ -14,7 +14,7 @@ console.log NewPhrase
 ###
 
 
-Say = (NewPhrase...)  ->
+Say = (NewPhrase..., next)  ->
   request = require 'request'
   text = NewPhrase
   console.log text
@@ -33,7 +33,7 @@ Say = (NewPhrase...)  ->
       ja.playUrl baz.fileSource
 
       if error then console.log err
-
+  next()
 
 
 module.exports = Say
