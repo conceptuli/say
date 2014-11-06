@@ -11,7 +11,8 @@
     "url": "https://github.com/conceptuli/say.git"
   },
   "keywords": [
-    "james"
+    "james",
+"tts", "conceptuli"
   ],
   "author": "Brian Bagdasarian <brian@conceptu.li> (http://conceptu.li)",
   "license": "MIT",
