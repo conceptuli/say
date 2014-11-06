@@ -30,11 +30,12 @@ Say = (NewPhrase...)  ->
 
 
         else
-          console.log 'Oh no! error ' + res.text
-  return next()
+          console.log 'Oh no! error ' + res.er
+
 
 
 
 
 
 module.exports = Say
+Say 'hello'
