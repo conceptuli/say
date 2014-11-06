@@ -1,0 +1,29 @@
+{
+  "name": "say",
+  "version": "1.0.0",
+  "description": "the voice of james",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/conceptuli/say.git"
+  },
+  "keywords": [
+    "james"
+  ],
+  "author": "Brian Bagdasarian <brian@conceptu.li> (http://conceptu.li)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/conceptuli/say/issues"
+  },
+  "homepage": "https://github.com/conceptuli/say",
+  "dependencies": {
+    "extract-values": "^0.1.2",
+    "fs-extra": "^0.12.0",
+    "http": "0.0.0",
+    "justaudio": "^0.1.1",
+    "path": "^0.4.9"
+  }
+}
