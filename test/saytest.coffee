@@ -1,16 +1,12 @@
-Say = require '../index.coffee'
+Respond = require '../index.coffee'
 
 exports.SayOneThing =
 
   'test says one phrase': (test) ->
-    Say 'hello friend'
+    respond = new Respond()
+    respond.say 'hello my friend'
     result = console.log 'ok'
+
     test.equal(result)
     test.done()
 
-  'test says two phrases': (test) ->
-    Say 'hello friend', NewPhrase
-    NewPhrase = Say 'ahoy mate'
-    result = console.log 'ok'
-    test.equal(result)
-    test.done()
