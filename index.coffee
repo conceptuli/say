@@ -34,15 +34,15 @@ getLink = (phrase, err, resLink) ->
     else
     resLink
 
-getFile
+
 
 
 class Create
-  makePhrase: (phrase, phraseLink) ->
+  getTTS: (phrase, phraseLink) ->
     console.log phrase
-    phraseLink = getLink(phrase)
-    JSON.stringify(phraseLink.fileSource)
+    phraseLinkRes = getLink(phrase)
 
+    phraseLink = JSON.stringify(phraseLinkRes.fileSource)
 
 
 module.exports = Create
