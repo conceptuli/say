@@ -1,12 +1,11 @@
-Respond = require '../index.coffee'
+james = require '../index.coffee'
 
 exports.SayOneThing =
 
   'test says one phrase': (test) ->
-    respond = new Respond()
-    respond.say 'hello my friend'
-    result = console.log 'ok'
-
+    phrase = 'hello my friend'
+    james.phraseLink phrase
+    result = console.log phraseLink
     test.equal(result)
     test.done()
 
