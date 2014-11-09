@@ -10,41 +10,42 @@ Q = require 'q'
 
 request = require 'superagent'
 
-getLink = (phrase, err, resLink) ->
 
+
+
+
+makeLink = (phrase) ->
+  if phrase is null then console.log 'we need phrase'
+  else
+  getPhraseLink phrase
+
+
+
+
+
+getPhraseLink = (err, phrase, phraseLink) ->
   request
   .post 'http://www.acapela-group.com/demo-tts/DemoHTML5Form_V2.php'
-  .set 'Content-Type','application/x-www-form-urlencoded'
+  .set 'Content-Type', 'application/x-www-form-urlencoded'
   .send 'MyLanguages=sonid8'
   .send 'MySelectedVoice=Graham'
   .send 'MyTextForTTS=' + "#{phrase}".split(" ").join("+")
   .send 'SendToVaaS='
   .end (res) ->
-
     if err then console.error err
     else
-      resText = res.text
+    resText = res.text
+    foobar = extractValues resText, "myPhpVar = '{fileSource}';"
+
+    resLink = foobar
+
+    phraseLink = resLink
+    console.log phraseLink
+  if err then throw console.error err
+  else
+
+   phraseLink.toJSON()
 
 
-      foobar = extractValues resText, "myPhpVar = '{fileSource}';"
-      resLink = foobar
-      console.log JSON.stringify resLink
-
-    if err then throw console.error err
-    else
-    resLink
-
-
-
-
-class Create
-  getTTS: (phrase, phraseLink) ->
-    console.log phrase
-    phraseLinkRes = getLink(phrase)
-
-    phraseLink = JSON.stringify(phraseLinkRes.fileSource)
-
-
-module.exports = Create
-
+exports.phraseLink = makeLink
 
