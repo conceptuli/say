@@ -1,6 +1,6 @@
 {
   "name": "james-say",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "the voice of james",
   "main": "index.js",
   "scripts": {
@@ -22,11 +22,20 @@
   },
   "homepage": "https://github.com/conceptuli/say",
   "dependencies": {
+    "bluebird": "^2.3.10",
     "extract-values": "^0.1.2",
     "fs-extra": "^0.12.0",
     "http": "0.0.0",
     "justaudio": "^0.1.1",
     "path": "^0.4.9",
-    "when": "^3.5.2"
+    "q": "^1.0.1",
+    "simpledownload": "^1.0.1",
+    "skipper": "^0.5.3",
+    "when": "^3.5.2",
+    "rsvp": "^3.0.14",
+    "request-then": "^1.0.0",
+    "stream-snitch": "0.0.2",
+    "es6-promise": "^2.0.0",
+    "superagent-promises": "git+https://github.com/wheresrhys/superagent-promises.git"
   }
 }
