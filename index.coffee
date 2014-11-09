@@ -1,35 +1,50 @@
 extractValues = require 'extract-values'
-ja = require 'justaudio'
-request =  require 'superagent'
+
+When  = require 'when'
+
+fs = require 'fs-extra'
+
+path = require 'path'
+
+Q = require 'q'
+
+request = require 'superagent'
+
+getLink = (phrase, err, resLink) ->
+
+  request
+  .post 'http://www.acapela-group.com/demo-tts/DemoHTML5Form_V2.php'
+  .set 'Content-Type','application/x-www-form-urlencoded'
+  .send 'MyLanguages=sonid8'
+  .send 'MySelectedVoice=Graham'
+  .send 'MyTextForTTS=' + "#{phrase}".split(" ").join("+")
+  .send 'SendToVaaS='
+  .end (res) ->
+
+    if err then console.error err
+    else
+      resText = res.text
+
+
+      foobar = extractValues resText, "myPhpVar = '{fileSource}';"
+      resLink = foobar
+      console.log JSON.stringify resLink
+
+    if err then throw console.error err
+    else
+    resLink
+
+getFile
+
+
+class Create
+  makePhrase: (phrase, phraseLink) ->
+    console.log phrase
+    phraseLink = getLink(phrase)
+    JSON.stringify(phraseLink.fileSource)
 
 
 
-class Respond
-  constructor: (@phrase) ->
-
-  say: (@phrase) ->
-    text = @phrase
-    request
-      .post 'http://www.acapela-group.com/demo-tts/DemoHTML5Form_V2.php'
-      .set 'Content-Type','application/x-www-form-urlencoded'
-      .send 'MyLanguages=sonid8'
-      .send 'MySelectedVoice=Graham'
-      .send "MyTextForTTS=#{text}"
-      .send 'SendToVaaS='
-      .end (res) ->
-        if res.ok then fileLink = extractValues res.text, "myPhpVar = '{fileSource}';", ->
-          console.log 'ok'
-        else console.log 'Oh no! error ' + res.text
-
-        ja.playUrl fileLink.fileSource
-
-
-    return console.log 'ok'
-
-
-module.exports  = Respond
-
-
-
+module.exports = Create
 
 
