@@ -14,7 +14,7 @@ request = require 'superagent'
 
 
 
-makeLink = (phrase) ->
+makeLink = phrase (phraseLink) ->
   if phrase is null then console.log 'we need phrase'
   else
   getPhraseLink phrase
@@ -47,5 +47,5 @@ getPhraseLink = (err, phrase, phraseLink) ->
    phraseLink.toJSON()
 
 
-exports.phraseLink = makeLink
+exports.makeLink = makeLink
 
