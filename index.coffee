@@ -43,8 +43,7 @@ getPhraseLink = (err, phrase, phraseLink) ->
     console.log phraseLink
   if err then throw console.error err
   else
-
-   phraseLink.toJSON()
+  phraseLink
 
 
 exports.makeLink = makeLink
