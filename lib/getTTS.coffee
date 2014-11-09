@@ -12,6 +12,30 @@ request = require 'superagent'
 
 getLink = (phrase, err, resLink) ->
 
+  request
+  .post 'http://www.acapela-group.com/demo-tts/DemoHTML5Form_V2.php'
+  .set 'Content-Type','application/x-www-form-urlencoded'
+  .send 'MyLanguages=sonid8'
+  .send 'MySelectedVoice=Graham'
+  .send 'MyTextForTTS=' + "#{phrase}".split(" ").join("+")
+  .send 'SendToVaaS='
+  .end (res) ->
+
+    if err then console.error err
+    else
+      resText = res.text
+
+
+      foobar = extractValues resText, "myPhpVar = '{fileSource}';"
+      resLink = foobar
+      console.log JSON.stringify resLink
+
+    if err then throw console.error err
+    else
+    resLink
+
+getFile
+
 
 class Create
   makePhrase: (phrase, phraseLink) ->
