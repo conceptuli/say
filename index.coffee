@@ -1,50 +1,41 @@
 extractValues = require 'extract-values'
-
-When  = require 'when'
-
-fs = require 'fs-extra'
-
 path = require 'path'
-
-Q = require 'q'
-
-request = require 'superagent'
+request = require 'request'
 
 
 
 
+class Say
+  constructor: (@phrase) ->
+    @link = ''
+    @formData =
+      MyLanguages: 'sonid9'
+      MySelectedVoice: 'Graham'
+      MyTextForTTS: "#{@phrase}"
+      SendToVaaS: ''
 
-makeLink = phrase (phraseLink) ->
-  if phrase is null then console.log 'we need phrase'
-  else
-  getPhraseLink phrase
-
-
-
-
-
-getPhraseLink = (err, phrase, phraseLink) ->
-  request
-  .post 'http://www.acapela-group.com/demo-tts/DemoHTML5Form_V2.php'
-  .set 'Content-Type', 'application/x-www-form-urlencoded'
-  .send 'MyLanguages=sonid8'
-  .send 'MySelectedVoice=Graham'
-  .send 'MyTextForTTS=' + "#{phrase}".split(" ").join("+")
-  .send 'SendToVaaS='
-  .end (res) ->
-    if err then console.error err
-    else
-    resText = res.text
-    foobar = extractValues resText, "myPhpVar = '{fileSource}';"
-
-    resLink = foobar
-
-    phraseLink = resLink
-    console.log phraseLink
-  if err then throw console.error err
-  else
-  phraseLink
+    @options =
+      headers:
+        ' content-type': 'Content-type: application/x-www-form-urlencoded\r\n'
 
 
-exports.makeLink = makeLink
+
+    do getLink = (@options, @formData, @bodyLink) ->
+      request.post
+        url: 'http://www.acapela-group.com/demo-tts/DemoHTML5Form_V2.php'
+        headers: @options.headers
+        form: @formData
+      , (error, response, body) ->
+        body = extractValues JSON.stringify(response), "var myPhpVar = '{link}\';"
+        @bodyLink = body.link
+
+
+        @link = @bodyLink
+        console.log link:@link
+
+
+
+
+module.exports = Say
+
 
