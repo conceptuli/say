@@ -14,9 +14,15 @@ a small dev proxy for the TTS features of JAMES from Conceptuli.
 
 ## Usage
 
+  ````
   say = require 'Say'
 
   say 'string'
+
+  ````
+
+  the returned object will look like {link:'PATH TO FILE'}
+
 
 ## Options
 
