@@ -32,10 +32,10 @@ class Say
 
         @link = @bodyLink
         console.log link:@link
-
+        return link:@link
 
 
 
 module.exports = Say
 
-
+Say 'hello'
