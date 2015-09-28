@@ -16,7 +16,7 @@ class Say
 
     @options =
       headers:
-        ' content-type': 'Content-type: application/x-www-form-urlencoded\r\n'
+        'content-type': 'Content-type: application/x-www-form-urlencoded\r\n'
 
 
 
@@ -37,5 +37,3 @@ class Say
 
 
 module.exports = Say
-
-Say 'hello'
